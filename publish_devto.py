@@ -20,7 +20,7 @@ if len(parts) >= 3:
     
     # We must include the subtitle manually in the description or just let it be in the body
     metadata = {
-        "title": "Autonomous Manufacturing Defect Triager with Multi-Agent AI",
+        "title": "Autonomous Manufacturing Defect Triager with Multi-Agent AI (Updated)",
         "description": "How I Automated Quality Control Routing Using LangGraph, a Structured Message Bus, and Persistent Shared State",
         "published": True,
         "tags": ["ai", "python", "machinelearning", "programming"],
