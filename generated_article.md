@@ -7,7 +7,7 @@ tags: ai, python, machinelearning, programming
 
 > **How I Automated Quality Control Routing Using LangGraph, a Structured Message Bus, and Persistent Shared State**
 
-![Title Image](https://raw.githubusercontent.com/aniket03/DefectRouter-AI/main/images/title-animation.gif)
+![Title Image](https://raw.githubusercontent.com/aniket-work/DefectRouter-AI/main/images/title-animation.gif)
 
 ## TL;DR
 
@@ -42,7 +42,7 @@ If you are a platform engineer, automation enthusiast, or an AI developer lookin
 
 Before writing a single line of code, I realized I needed a solid blueprint. From my experience, jumping straight into LangGraph without a clear architecture leads to tangled state variables and infinite loops. 
 
-![Architecture](https://raw.githubusercontent.com/aniket03/DefectRouter-AI/main/images/architecture_diagram.png)
+![Architecture](https://raw.githubusercontent.com/aniket-work/DefectRouter-AI/main/images/architecture_diagram.png)
 
 I conceptualized the architecture around a **Persistent Shared State**. I created a Pydantic-backed `TypedDict` that holds the `incident_id`, `sensor_data`, the `resolution_plan`, and most importantly, a `log_history`. Every agent mutation is appended to this log history.
 
@@ -53,7 +53,7 @@ The flow is simple but powerful:
 4. The specialist agent defines a resolution plan and updates the state.
 5. The system ends and prints an ASCII summary.
 
-![Sequence](https://raw.githubusercontent.com/aniket03/DefectRouter-AI/main/images/sequence_diagram.png)
+![Sequence](https://raw.githubusercontent.com/aniket-work/DefectRouter-AI/main/images/sequence_diagram.png)
 
 ## Let’s Get Cooking
 
@@ -130,7 +130,7 @@ def calibration_agent(state: DefectState) -> DefectState:
 
 I wired everything together in `graph.py`.
 
-![Flow](https://raw.githubusercontent.com/aniket03/DefectRouter-AI/main/images/flow_diagram.png)
+![Flow](https://raw.githubusercontent.com/aniket-work/DefectRouter-AI/main/images/flow_diagram.png)
 
 ```python
 # src/graph.py
@@ -191,7 +191,7 @@ From my experience:
 
 If you want to run my experiments locally, here is what you need to do:
 
-1. Clone the repository: `git clone https://github.com/aniket03/DefectRouter-AI.git`
+1. Clone the repository: `git clone https://github.com/aniket-work/DefectRouter-AI.git`
 2. Enter the directory: `cd DefectRouter-AI`
 3. Setup the virtual environment: `python -m venv venv && source venv/bin/activate`
 4. Install dependencies: `pip install -r requirements.txt`
@@ -206,7 +206,7 @@ python main.py
 
 You will immediately see the simulated inputs hitting the Diagnostic Agent, which then routes it appropriately and prints an incident report table!
 
-> **Code Repository:** All the code from my experiments can be found here: [DefectRouter-AI GitHub Repo](https://github.com/aniket03/DefectRouter-AI)
+> **Code Repository:** All the code from my experiments can be found here: [DefectRouter-AI GitHub Repo](https://github.com/aniket-work/DefectRouter-AI)
 
 ## Edge Cases and Resiliency
 

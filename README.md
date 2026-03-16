@@ -2,7 +2,7 @@
 **Autonomous Manufacturing Quality Control & Triaging System**
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/username/repo/main/images/title-animation.gif" alt="DefectRouter-AI Terminal Animation" width="900"/>
+  <img src="https://raw.githubusercontent.com/aniket-work/DefectRouter-AI/main/images/title-animation.gif" alt="DefectRouter-AI Terminal Animation" width="900"/>
 </div>
 
 ---
@@ -16,7 +16,7 @@ This experimental Proof-of-Concept highlights how modern AI agent orchestration 
 ## 🏗️ System Architecture
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/username/repo/main/images/architecture_diagram.png" alt="Architecture Diagram" width="800"/>
+  <img src="https://raw.githubusercontent.com/aniket-work/DefectRouter-AI/main/images/architecture_diagram.png" alt="Architecture Diagram" width="800"/>
 </div>
 
 The system features an **Advanced Communication Protocol (ACP)** simulation, providing a hyper-realistic terminal interface to visualize the inter-agent reasoning and routing processes.
@@ -39,7 +39,7 @@ The system features an **Advanced Communication Protocol (ACP)** simulation, pro
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/username/repo.git
+   git clone https://github.com/aniket-work/DefectRouter-AI.git
    cd repo
    ```
 
