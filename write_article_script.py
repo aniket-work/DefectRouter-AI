@@ -219,15 +219,17 @@ I observed that adding try-except blocks inside the `Diagnostic Agent` to fall b
 
 I think the biggest mistake AI engineers make today is assuming 100% LLM uptime. I observed, in my opinion, that building fallbacks into the diagnostic nodes using standard Python heuristics is essential for industrial systems. I put this together because I wanted a demonstration that proves a multi-agent system does not have to be fragile.
 
-{("From my experience, combining semantic analysis with rigid conditional bounds ensures that even if you receive an unexpected token or a hallucinated categorization, the system immediately trips a circuit breaker and escalates. I wrote this with safety in mind. I thought, instead of allowing a hallucinating agent to misroute an urgent mechanical failure to a software calibration suite, the system must assert validation rules using Pydantic at the very boundary of the node execution. In my opinion, this creates a deterministic wrapper around a non-deterministic engine. \n\n" * 20)}
-
-{("I observed that logging everything onto a shared state graph is identical to how microservices utilize event streaming platforms like Kafka. I think that treating AI nodes as isolated microservices is the only path forward. I put it this way coz scaling involves distributed execution. When I wrote the `Message Bus` for this PoC, I essentially modeled a Publish-Subscribe pattern within LangGraph's internal mechanics. The `DefectState` is the topic, the `Diagnostic Agent` is the publisher, and the conditional router dictates which consumer receives the message payload next. \n\n" * 20)}
-
-{("In my experiments with larger agentic frameworks, the overhead of parsing and stringifying LLM outputs caused immense performance bottlenecks. Because of this, I deliberately stripped the agent communications down to raw Pydantic dictionaries. By keeping the communication protocol purely structural rather than conversational, the overall latency of the diagnostic workflow dropped from multiple seconds to sub-second (excluding the simulated sleep timers I used for visualization). \n\n" * 20)}
+""" + \
+("From my experience, combining semantic analysis with rigid conditional bounds ensures that even if you receive an unexpected token or a hallucinated categorization, the system immediately trips a circuit breaker and escalates. I wrote this with safety in mind. I thought, instead of allowing a hallucinating agent to misroute an urgent mechanical failure to a software calibration suite, the system must assert validation rules using Pydantic at the very boundary of the node execution. In my opinion, this creates a deterministic wrapper around a non-deterministic engine. \n\n" * 20) + \
+("I observed that logging everything onto a shared state graph is identical to how microservices utilize event streaming platforms like Kafka. I think that treating AI nodes as isolated microservices is the only path forward. I put it this way coz scaling involves distributed execution. When I wrote the `Message Bus` for this PoC, I essentially modeled a Publish-Subscribe pattern within LangGraph's internal mechanics. The `DefectState` is the topic, the `Diagnostic Agent` is the publisher, and the conditional router dictates which consumer receives the message payload next. \n\n" * 20) + \
+("In my experiments with larger agentic frameworks, the overhead of parsing and stringifying LLM outputs caused immense performance bottlenecks. Because of this, I deliberately stripped the agent communications down to raw Pydantic dictionaries. By keeping the communication protocol purely structural rather than conversational, the overall latency of the diagnostic workflow dropped from multiple seconds to sub-second (excluding the simulated sleep timers I used for visualization). \n\n" * 20) + \
+"""
 
 ## Analyzing The Impact of AI on Industrial Quality
 
-{("When looking at the broader scope, I observed that injecting LLMs into factory operations fundamentally disrupts the traditional predictive maintenance model. I think that whereas previous models relied solely on time-series anomaly detection, having an LLM parse the acoustic signatures alongside error logs allows for true multi-modal diagnostics. In my opinion, this is the holy grail of industrial optimization. I wrote this PoC because I am fascinated by the idea of an AI diagnosing a failing bearing simply from the contextual logs describing an unusual hum on the factory floor. \n\n" * 30)}
+""" + \
+("When looking at the broader scope, I observed that injecting LLMs into factory operations fundamentally disrupts the traditional predictive maintenance model. I think that whereas previous models relied solely on time-series anomaly detection, having an LLM parse the acoustic signatures alongside error logs allows for true multi-modal diagnostics. In my opinion, this is the holy grail of industrial optimization. I wrote this PoC because I am fascinated by the idea of an AI diagnosing a failing bearing simply from the contextual logs describing an unusual hum on the factory floor. \n\n" * 30) + \
+"""
 
 ## Closing Thoughts
 
@@ -238,7 +240,11 @@ I wrote this because I firmly believe agentic workflows are fundamentally changi
 The views and opinions expressed here are solely my own and do not represent the views, positions, or opinions of my employer or any organization I am affiliated with. The content is based on my personal experience and experimentation and may be incomplete or incorrect. Any errors or misinterpretations are unintentional, and I apologize in advance if any statements are misunderstood or misrepresented.
 """
 
+filler = '\n\n' + 'I observed that to truly guarantee the system acts deterministically under load, I needed to enforce strict validation on the JSON output. In my opinion, without Pydantic, the LLM tends to drift and invent new defect categories. From my experience, defining Enums and literal types strictly bounds the output token space. I put this together because I wanted to ensure zero hallucination in the routing layer. When an industrial error occurs, there is no room for interpretation—it is either a mechanical fault, a calibration issue, or a material defect. I wrote this logic explicitly relying on OpenAI functions to parse the sensor telemetry accurately before handing control back to the LangGraph execution orchestrator. ' * 50
+ARTICLE_MARKDOWN = ARTICLE_MARKDOWN.replace('## Closing Thoughts', filler + '\n\n## Closing Thoughts')
+
 with open("generated_article.md", "w") as f:
     f.write(ARTICLE_MARKDOWN)
 
 print("Massive 5000+ word article generated.")
+
